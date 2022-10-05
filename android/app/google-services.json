@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "714845301649",
+    "project_id": "e-booking-419f1",
+    "storage_bucket": "e-booking-419f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714845301649:android:94f64e802c8ceba4600830",
+        "android_client_info": {
+          "package_name": "com.example.bounce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714845301649-51u8jv9ocgn1fs1939qbr186orpeejq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWAQS3cMgpO18S7vU1EkbeZ9Dbbrq06Bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714845301649-51u8jv9ocgn1fs1939qbr186orpeejq0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
