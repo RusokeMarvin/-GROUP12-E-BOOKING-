@@ -7,6 +7,7 @@ import 'package:bounce/numbers_widget';
 import 'package:bounce/profilewidget.dart';
 import 'package:bounce/edit_profile_page.dart';
 import 'package:bounce/call.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.getUser();
+    const number = '+256773078427';
 
     return Scaffold(
       appBar: AppBar(
@@ -49,13 +51,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   onPressed: () {}),
               const SizedBox(width: 30),
               IconButton(
-                  icon: Icon(Icons.phone, color: Colors.blue),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Call(title: 'Answer CALL')));
-                  }),
+                icon: Icon(Icons.phone, color: Colors.blue),
+                onPressed: () async {
+                  //indirect
+                  launchUrlString('tel://$number');
+                  // direct
+                },
+              ),
             ],
           ),
           Center(child: buildUpgradeButton()),
