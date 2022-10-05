@@ -8,6 +8,8 @@ import 'package:flutter/services.dart';
 import 'package:bounce/userprofiles.dart';
 import 'package:bounce/home.dart';
 
+import 'homefinal.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
                   theme: ThemeData(
                     primarySwatch: Colors.blue,
                   ),
-                  home: Search(),
+                  home: home(),
                 )));
   }
 }
