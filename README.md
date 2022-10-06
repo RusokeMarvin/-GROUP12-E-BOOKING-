@@ -1,16 +1,6 @@
-# bounce
+# bounce music app
 
-A new Flutter project.
+A new Flutter project. 
+This app is to build and brige the gap between the players in the music industry of uganda. That is to say limit forgery and impersonation of artists ,management and clients which has costed both the industry and government.
+It covere the functional and technical specifications as stated ;
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
