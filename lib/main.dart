@@ -7,17 +7,27 @@ import 'package:bounce/themes.dart';
 import 'package:flutter/services.dart';
 import 'package:bounce/userprofiles.dart';
 import 'package:bounce/home.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
+
 
 import 'homefinal.dart';
 
-void main() async {
+
+
+Future<void> main() async {
+  await SentryFlutter.init(
+    (options) => options.dsn = 'https://<key>@sentry.io/<project>',
+    appRunner: () => runApp(MyApp()),
+  );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
   await UserPreferences.init();
-
   runApp(MyApp());
+
+  // or define SENTRY_DSN via Dart environment variable (--dart-define)
 }
+
+
 
 class MyApp extends StatelessWidget {
   static final String title = 'User Profile';
