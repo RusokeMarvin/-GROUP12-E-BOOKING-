@@ -8,24 +8,33 @@ import 'package:flutter/services.dart';
 import 'package:bounce/userprofiles.dart';
 import 'package:bounce/home.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-
-
 import 'homefinal.dart';
-
+import 'dart:ui';
 
 
 Future<void> main() async {
   await SentryFlutter.init(
-    (options) => options.dsn = 'https://<key>@sentry.io/<project>',
+    (options) => options.dsn = 'https://examplePublicKey@o0.ingest.sentry.io/0',
     appRunner: () => runApp(MyApp()),
   );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   await UserPreferences.init();
+
   runApp(MyApp());
 
   // or define SENTRY_DSN via Dart environment variable (--dart-define)
 }
+
+
+
+
+
+
+
+
+
 
 
 
