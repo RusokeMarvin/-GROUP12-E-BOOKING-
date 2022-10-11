@@ -1,16 +1,8 @@
-# bounce
+E-BOOKING APP
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+INTRODUCTION
+E-booking app is an app whose main purpose is to bring it at ease for celebrity fans to book their favorite artists  with limited forgery and impersonation in the music industry.
+This application provides users with a list of artists that are available along with their portfolios and ratings.
+Customers can also pay for service right in the app.
+Fans can chat with any celebrity in their chat room assigned for each celebrity.
+Our advanced search engine helps you find the right artist that suites your business/ personal event, such as company party, birthday parties, graduation party , marriage ceremonies and any other ceremony.
