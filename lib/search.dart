@@ -29,7 +29,6 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Editnav(),
       appBar: AppBar(
         title: Card(
           child: TextField(
@@ -75,8 +74,16 @@ class _SearchState extends State<Search> {
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
-                          leading: CircleAvatar(
-                            backgroundImage: NetworkImage(data['image']),
+                          leading: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProfilePage()));
+                            },
+                            child: CircleAvatar(
+                              backgroundImage: NetworkImage(data['image']),
+                            ),
                           ),
                         );
                       }
@@ -103,8 +110,16 @@ class _SearchState extends State<Search> {
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
-                          leading: CircleAvatar(
-                            backgroundImage: NetworkImage(data['imagePath']),
+                          leading: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProfilePage()));
+                            },
+                            child: CircleAvatar(
+                              backgroundImage: NetworkImage(data['imagePath']),
+                            ),
                           ),
                         );
                       } else {

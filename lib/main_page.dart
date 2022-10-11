@@ -1,4 +1,5 @@
-import 'package:bounce/home.dart';
+import 'package:bounce/homefinal.dart';
+import 'package:bounce/search.dart';
 import 'package:bounce/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class MainPage extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: ((context, snapshot) {
             if (snapshot.hasData) {
-              return Search();
+              return home();
             } else {
               return AuthPage();
             }

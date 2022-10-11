@@ -1,10 +1,12 @@
+import 'package:bounce/search.dart';
 import 'package:bounce/login_page.dart';
 import 'package:bounce/user.dart';
 import 'package:bounce/user_preferences.dart';
+import 'package:bounce/userprofiles.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-
 import 'NavBar.dart';
 
 class home extends StatefulWidget {
@@ -14,12 +16,12 @@ class home extends StatefulWidget {
 
 class _homeState extends State<home> {
   Widget buildUser(User user) => ListTile(
-        leading: CircleAvatar(child: Text('${user.name}')),
+        leading: CircleAvatar(backgroundImage: NetworkImage(user.imagePath)),
         title: Text(user.name),
         subtitle: Text(user.email.toString()),
       );
   Stream<List<User>> readUsers() => FirebaseFirestore.instance
-      .collection('users')
+      .collection("Afro-beat")
       .snapshots()
       .map((snapshot) =>
           snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
@@ -31,6 +33,12 @@ class _homeState extends State<home> {
       appBar: AppBar(
         title: Text('E-BOOKING APP'),
         actions: [
+          IconButton(
+              icon: Icon(Icons.search, color: Colors.white),
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Search()));
+              }),
           IconButton(
               icon: Icon(Icons.logout, color: Colors.white),
               onPressed: () {
@@ -57,21 +65,31 @@ class _homeState extends State<home> {
             ),
           ),
           Categories(),
-          StreamBuilder<List<User>>(
-              stream: readUsers(),
-              builder: (context, snapshot) {
-                if (snapshot.hasError) {
-                  return Text('Something went wrong! ${snapshot.error}');
-                } else if (snapshot.hasData) {
-                  final users = snapshot.data!;
+          SizedBox(
+            height: 400,
+            child: StreamBuilder<List<User>>(
+                stream: readUsers(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Text('Something went wrong! ${snapshot.error}');
+                  } else if (snapshot.hasData) {
+                    final users = snapshot.data!;
 
-                  return ListView(
-                    children: users.map(buildUser).toList(),
-                  );
-                } else {
-                  return Center(child: CircularProgressIndicator());
-                }
-              }),
+                    return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProfilePage()));
+                        },
+                        child: ListView(
+                          children: users.map(buildUser).toList(),
+                        ));
+                  } else {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                }),
+          ),
         ],
       ),
     );
@@ -98,6 +116,7 @@ class _CategoriesState extends State<Categories> {
       child: SizedBox(
         height: 25,
         child: ListView.builder(
+          shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
           itemBuilder: (context, index) => buildCategory(index),

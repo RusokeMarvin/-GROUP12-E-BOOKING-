@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:bounce/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/material.dart';
 import 'package:bounce/userprofiles.dart';
 import 'package:bounce/user.dart';
@@ -6,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:bounce/user_preferences.dart';
 import 'package:path/path.dart';
+import 'login_page.dart';
 
 class Editnav extends StatefulWidget {
   @override
@@ -49,14 +52,6 @@ class _EditnavState extends State<Editnav> {
                   ),
                   fit: BoxFit.cover,
                 )),
-          ),
-          ListTile(
-            leading: Icon(Icons.remove_red_eye),
-            title: Text('User Profile'),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()));
-            },
           ),
           ListTile(
             leading: Icon(Icons.favorite),

@@ -21,7 +21,7 @@ class UserPreferences {
       _preferences = await SharedPreferences.getInstance();
 
   static Future setUser(User user) async {
-    final docUser = FirebaseFirestore.instance.collection('users').doc();
+    final docUser = FirebaseFirestore.instance.collection('Afro-beat').doc();
     final json = user.toJson();
     await docUser.set(json);
 

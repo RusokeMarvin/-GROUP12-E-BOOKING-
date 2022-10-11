@@ -6,7 +6,6 @@ import 'package:bounce/buttonwidget.dart';
 import 'package:bounce/numbers_widget';
 import 'package:bounce/profilewidget.dart';
 import 'package:bounce/edit_profile_page.dart';
-import 'package:bounce/call.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -23,10 +22,6 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('USER PROFILE'),
-        actions: [
-          IconButton(
-              icon: Icon(Icons.logout, color: Colors.white), onPressed: () {}),
-        ],
       ),
       body: ListView(
         physics: BouncingScrollPhysics(),

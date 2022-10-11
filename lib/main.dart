@@ -6,9 +6,9 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:bounce/themes.dart';
 import 'package:flutter/services.dart';
 import 'package:bounce/userprofiles.dart';
-import 'package:bounce/home.dart';
-
-import 'homefinal.dart';
+import 'package:bounce/search.dart';
+import 'package:bounce/smsemail.dart';
+import 'category.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
