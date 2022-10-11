@@ -10,6 +10,15 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+_launchURLBrowser() async {
+  var url = Uri.parse("https://paystack.com/pay/hob");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 _sendingMails() async {
   var url = Uri.parse("mailto:dmuhumuza88@gmail.com");
   if (await canLaunchUrl(url)) {
@@ -107,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget buildUpgradeButton() => ButtonWidget(
         text: 'BOOK ARTIST',
-        onClicked: () {},
+        onClicked: _launchURLBrowser,
       );
 
   Widget buildAbout(User user) => Container(
