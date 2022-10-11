@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bounce/homefinal.dart';
+import 'package:bounce/category.dart';
 import 'package:bounce/search.dart';
 import 'package:bounce/login_page.dart';
 import 'package:bounce/user.dart';

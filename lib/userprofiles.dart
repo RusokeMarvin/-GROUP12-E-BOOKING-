@@ -7,6 +7,26 @@ import 'package:bounce/numbers_widget';
 import 'package:bounce/profilewidget.dart';
 import 'package:bounce/edit_profile_page.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+_sendingMails() async {
+  var url = Uri.parse("mailto:dmuhumuza88@gmail.com");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_sendingSMS() async {
+  var url = Uri.parse("sms:+256773078427");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -40,10 +60,11 @@ class _ProfilePageState extends State<ProfilePage> {
           const SizedBox(height: 24),
           Row(
             children: [
-              const SizedBox(width: 120),
+              const SizedBox(width: 80),
               IconButton(
-                  icon: Icon(Icons.message, color: Colors.blue),
-                  onPressed: () {}),
+                icon: Icon(Icons.message, color: Colors.blue),
+                onPressed: _sendingSMS,
+              ),
               const SizedBox(width: 30),
               IconButton(
                 icon: Icon(Icons.phone, color: Colors.blue),
@@ -52,6 +73,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   launchUrlString('tel://$number');
                   // direct
                 },
+              ),
+              const SizedBox(width: 30),
+              IconButton(
+                icon: Icon(Icons.email, color: Colors.blue),
+                onPressed: _sendingMails,
               ),
             ],
           ),
