@@ -1,6 +1,3 @@
-# bounce music app
+E-BOOKING APP
 
-A new Flutter project. 
-This app is to build and bridge the gap between the players in the music industry of uganda. That is to say limit forgery and impersonation of artists ,management and clients which has costed both the industry and government loss of revenue and trust.
-It covere the functional and technical specifications as stated ;
-
+INTRODUCTION E-booking app is an app whose main purpose is to bring it at ease for celebrity fans to book their favorite artists with limited forgery and impersonation in the music industry. This application provides users with a list of artists that are available along with their portfolios and ratings. Customers can also pay for service right in the app. Fans can chat with any celebrity in their sms assigned for each celebrity. Help is available 24/7 with sms,call and email privately without interception by other users. Our advanced search engine helps you find the right artist that suites your business/ personal event, such as company party, birthday parties, graduation party , marriage ceremonies and any other ceremony.
