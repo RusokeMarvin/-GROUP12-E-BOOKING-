@@ -79,7 +79,7 @@ class _SearchState extends State<Search> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ProfilePage()));
+                                      builder: (context) => ProfilePage(user)));
                             },
                             child: CircleAvatar(
                               backgroundImage: NetworkImage(data['image']),
@@ -115,7 +115,7 @@ class _SearchState extends State<Search> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ProfilePage()));
+                                      builder: (context) => ProfilePage(user)));
                             },
                             child: CircleAvatar(
                               backgroundImage: NetworkImage(data['imagePath']),

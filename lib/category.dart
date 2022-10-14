@@ -7,6 +7,7 @@ import 'package:bounce/user_preferences.dart';
 import 'package:bounce/userprofiles.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'NavBar.dart';
@@ -39,12 +40,7 @@ class _homeState extends State<home> {
               IconButton(
                   icon: Icon(Icons.logout, color: Colors.white),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => LoginPage(
-                                  showRegisterPage: () {},
-                                )));
+                    FirebaseAuth.instance.signOut();
                   }),
             ],
             bottom: TabBar(

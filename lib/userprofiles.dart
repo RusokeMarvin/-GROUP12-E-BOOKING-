@@ -1,14 +1,20 @@
-import 'package:flutter/cupertino.dart';
+import 'package:bounce/profilewidget.dart';
 import 'package:flutter/material.dart';
+import 'package:bounce/category.dart';
+import 'package:bounce/search.dart';
+import 'package:bounce/login_page.dart';
 import 'package:bounce/user.dart';
 import 'package:bounce/user_preferences.dart';
-import 'package:bounce/buttonwidget.dart';
-import 'package:bounce/numbers_widget';
-import 'package:bounce/profilewidget.dart';
-import 'package:bounce/edit_profile_page.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:bounce/userprofiles.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/material.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'NavBar.dart';
+import 'buttonwidget.dart';
+import 'numbers_widget';
 
 _launchURLBrowser() async {
   var url = Uri.parse("https://paystack.com/pay/hob");
@@ -37,35 +43,33 @@ _sendingSMS() async {
   }
 }
 
-class ProfilePage extends StatefulWidget {
-  @override
-  _ProfilePageState createState() => _ProfilePageState();
-}
+class ProfilePage extends StatelessWidget {
+  final User user;
+  ProfilePage(this.user);
 
-class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final user = UserPreferences.getUser();
     const number = '+256773078427';
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text('USER PROFILE'),
-      ),
+      appBar: AppBar(title: Text(user.name)),
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
           ProfileWidget(
             imagePath: user.imagePath,
-            onClicked: () async {
-              await Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => EditProfilePage()),
-              );
-              setState(() {});
-            },
+            onClicked: () {},
           ),
           const SizedBox(height: 24),
-          buildName(user),
+          Center(
+            child: Text(user.name,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+          ),
+          Center(
+            child: Text(
+              user.email,
+              style: TextStyle(color: Colors.grey),
+            ),
+          ),
           const SizedBox(height: 24),
           Row(
             children: [
@@ -94,46 +98,30 @@ class _ProfilePageState extends State<ProfilePage> {
           const SizedBox(height: 24),
           NumbersWidget(),
           const SizedBox(height: 48),
-          buildAbout(user),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 48),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'About',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  user.about,
+                  style: TextStyle(fontSize: 16, height: 1.4),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
-
-  Widget buildName(User user) => Column(
-        children: [
-          Text(
-            user.name,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            user.email,
-            style: TextStyle(color: Colors.grey),
-          )
-        ],
-      );
-
-  Widget buildUpgradeButton() => ButtonWidget(
-        text: 'BOOK ARTIST',
-        onClicked: _launchURLBrowser,
-      );
-
-  Widget buildAbout(User user) => Container(
-        padding: EdgeInsets.symmetric(horizontal: 48),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'About',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              user.about,
-              style: TextStyle(fontSize: 16, height: 1.4),
-            ),
-          ],
-        ),
-      );
 }
+
+Widget buildUpgradeButton() => ButtonWidget(
+      text: 'BOOK ARTIST',
+      onClicked: _launchURLBrowser,
+    );

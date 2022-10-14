@@ -42,14 +42,26 @@ class _AfrobeatState extends State<Afrobeat> {
             } else if (snapshot.hasData) {
               final users = snapshot.data!;
 
-              return GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ProfilePage()));
-                  },
-                  child: ListView(
-                    children: users.map(buildUser).toList(),
-                  ));
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage:
+                          NetworkImage(snapshot.data![index].imagePath),
+                    ),
+                    title: Text(snapshot.data![index].name),
+                    subtitle: Text(snapshot.data![index].email),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ProfilePage(snapshot.data![index])));
+                    },
+                  );
+                },
+              );
             } else {
               return Center(child: CircularProgressIndicator());
             }
