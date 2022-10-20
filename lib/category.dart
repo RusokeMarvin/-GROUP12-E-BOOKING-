@@ -1,15 +1,8 @@
 import 'package:bounce/hiphop.dart';
 import 'package:bounce/search.dart';
-import 'package:bounce/login_page.dart';
 import 'package:bounce/soulmusic.dart';
-import 'package:bounce/user.dart';
-import 'package:bounce/user_preferences.dart';
-import 'package:bounce/userprofiles.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'NavBar.dart';
 import 'afrobeat.dart';
 
@@ -21,6 +14,7 @@ class home extends StatefulWidget {
 Color PrimaryColor = Color(0xff109618);
 
 class _homeState extends State<home> {
+  final user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -39,8 +33,8 @@ class _homeState extends State<home> {
                   }),
               IconButton(
                   icon: Icon(Icons.logout, color: Colors.white),
-                  onPressed: () {
-                    FirebaseAuth.instance.signOut();
+                  onPressed: () async {
+                    await FirebaseAuth.instance.signOut();
                   }),
             ],
             bottom: TabBar(

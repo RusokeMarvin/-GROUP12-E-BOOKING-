@@ -1,6 +1,4 @@
 import 'package:bounce/category.dart';
-import 'package:bounce/search.dart';
-import 'package:bounce/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:bounce/auth_page.dart';
