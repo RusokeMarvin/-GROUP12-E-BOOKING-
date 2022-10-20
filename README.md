@@ -11,3 +11,5 @@ The individuals also have the ability to make multiple payment using mobile mone
 For functional description: The one administator has all rights to edit permisssions, edit artist profiles,updates  and so on.
 Also administrator have the  Optimizing the platform as per the needs of event organizers, clients, and artists
 The client can only access the frontend with rights of fill, delete, correct, information  requred by the appplication etc.
+CONCLUSION
+in conclusion the app covers uganda but in few time we want to be international  beyon Est AFRICA 
